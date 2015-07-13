@@ -1,0 +1,11 @@
+{
+  "name": "LedBlink",
+  "version": "0.0.1",
+  "description": "Johnny-Five example",
+  "dependencies": {
+    "johnny-five": "^0.8.84"
+  },
+  "devDependencies": {
+    "temporal": "^0.4.0"
+  }
+}
