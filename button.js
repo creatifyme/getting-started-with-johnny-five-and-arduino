@@ -5,6 +5,7 @@ var button;
 var led;
 var events = [];
 var looper;
+var stopLoop = false;
 
 board.on('ready', function() {
 	led = new five.Pin(13);
@@ -13,9 +14,9 @@ board.on('ready', function() {
 	// create a completely default instance
 	button = new five.Button(2);
 
-	looper = function(ooStopIt) {
+	looper = function() {
 		temporal.loop(500, function(loop) {
-			if (ooStopIt) {
+			if (stopLoop) {
 				this.stop();
 			} else {
 				led[loop.called % 2 === 0 ? 'high' : 'low']();
@@ -44,7 +45,8 @@ board.on('ready', function() {
 	button.on('hold', function() {
 		console.log('hold');
 
-		looper(false);
+		stopLoop = false;
+		looper();
 
 		// Pin emits "high" and "low" events, whether it's
 	    // input or output.
@@ -61,7 +63,8 @@ board.on('ready', function() {
 	// "up" the button is released
 	button.on('up', function() {
 		console.log('up');
-		looper(true);
+		stopLoop = true;
+		looper();
 		led.low();
 	});
 });

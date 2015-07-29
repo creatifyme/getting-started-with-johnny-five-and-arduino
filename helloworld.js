@@ -5,6 +5,7 @@ var events = [];
 var strobe;
 
 board.on('ready', function() {
+    // LED is on pin 13
     strobe = new five.Pin(13);
 
     temporal.loop(500, function(loop) {

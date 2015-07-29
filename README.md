@@ -1,2 +1,8 @@
-# getting-started-with-johnny-five-and-arduino
-My journey of tinkering with Arduino and Johnny Five JavaScript framework.
+# Getting Started With Johnny Five and Arduino
+
+###Slides
+* http://slides.com/mattwebb-1/getting-started-with-arduino-johnny-five
+
+###Where to buy stuff?
+* [Sparkfun](http://www.sparkfun.com)
+* [Adafruit](http://www.adafruit.com/)

@@ -1,0 +1,8 @@
+9V battery is insufficient power to control that stepper, which is rated at 1.7A. 9V batteries have a 400-600 mAh capacity and effectively max out at 500mA (0.5A, which is not enough for that Stepper)
+The Servo should also have external power, especially if you’re using a MacBook Pro that’s newer than October 2013, or running Mavericks (or newer). Those mark time when the power distribution subsystems were re-engineered from the ground up, which resulted in strict enforcement of the amount of current a 5V usb peripheral was allowed to draw before the usb port was disabled. (This also marks the end of being able to charge phones via usb from a MacBook that’s closed)
+There is a bit of flexibility with servos, where micro servos can probably be powered from the 5V on the board, but anything bigger will be unreliable
+
+Voltage is not the same as Current
+Voltage is a constant value, but it needs to be delivered at a rate in which the stepper can function
+That delivery capacity is Current
+the 9V cannot deliver its Voltage at a Current rate that’s sufficient for the Stepper to function correctly
