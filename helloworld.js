@@ -1,33 +1,15 @@
 var five = require('johnny-five');
-var temporal = require('temporal');
 var board = new five.Board();
-var events = [];
-var strobe;
 
 board.on('ready', function() {
-    // LED is on pin 13
-    strobe = new five.Pin(13);
+    // LED is on pin 11
+    // Create a standard `led` component instance
+    var led = new five.Led(11);
 
-    temporal.loop(500, function(loop) {
-        strobe[loop.called % 2 === 0 ? 'high' : 'low']();
-    });
+    // "blink" the led in 500ms on-off phase periods
+    led.blink(500);
 
-
-    // Pin emits "high" and "low" events, whether it's
-    // input or output.
-    ['high', 'low'].forEach(function(state) {
-        strobe.on(state, function() {
-            if (events.indexOf(state) === -1) {
-                console.log("Event emitted for:", state, "on", this.addr);
-                events.push(state);
-            }
-        });
-    });
-
-    var analog = new five.Pin("A0");
-
-    // Query the analog pin for its current state.
-    analog.query(function(state) {
-        console.log(state);
+    board.repl.inject({
+        led: led
     });
 });

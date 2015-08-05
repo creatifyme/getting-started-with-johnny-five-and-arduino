@@ -8,7 +8,6 @@ board.on("ready", function() {
    * either of the following:
    *
    * - AdvancedFirmata https://github.com/soundanalogous/AdvancedFirmata
-   * - ConfigurableFirmata https://github.com/firmata/arduino/releases/tag/v2.6.2
    *
    */
 

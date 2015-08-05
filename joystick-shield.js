@@ -1,3 +1,10 @@
+// *****************************************************
+//
+// THIS SCRIPT IS BUSTED
+// But still some good stuff in here
+//
+// *****************************************************
+
 var five = require('johnny-five');
 var board = new five.Board();
 var button;

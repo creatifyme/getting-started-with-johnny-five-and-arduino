@@ -1,34 +1,21 @@
 var five = require('johnny-five');
 var board = new five.Board();
-var temporal = require('temporal');
 var button;
 var led;
-var events = [];
-var looper;
-var stopLoop = false;
 
 board.on('ready', function() {
-	led = new five.Pin(13);
+	led = new five.Led(11);
 	// Create a new `button` hardware instance.
 	// This example allows the button module to
 	// create a completely default instance
 	button = new five.Button(2);
 
-	looper = function() {
-		temporal.loop(500, function(loop) {
-			if (stopLoop) {
-				this.stop();
-			} else {
-				led[loop.called % 2 === 0 ? 'high' : 'low']();
-			}
-		})
-	};
-
 	// Inject the `button` hardware into
 	// the Repl instance's context;
 	// allows direct command line access
 	board.repl.inject({
-		button: button
+		button: button,
+		led: led
 	});
 
 	// Button Event API
@@ -36,35 +23,18 @@ board.on('ready', function() {
 	// "down" the button is pressed
 	button.on('down', function() {
 		console.log('down');
-		led.high();
+		led.brightness(255);
 	});
 
-	// "hold" the button is pressed for specified time.
-	//        defaults to 500ms (1/2 second)
-	//        set
 	button.on('hold', function() {
 		console.log('hold');
-
-		stopLoop = false;
-		looper();
-
-		// Pin emits "high" and "low" events, whether it's
-	    // input or output.
-	    ['high', 'low'].forEach(function(state) {
-	        led.on(state, function() {
-	            if (events.indexOf(state) === -1) {
-	                console.log("Event emitted for:", state, "on", this.addr);
-	                events.push(state);
-	            }
-	        });
-	    });
+		led.blink(500);
 	});
 
 	// "up" the button is released
 	button.on('up', function() {
 		console.log('up');
-		stopLoop = true;
-		looper();
-		led.low();
+		led.stop(); // Stops the blinking
+		led.brightness(0);
 	});
 });

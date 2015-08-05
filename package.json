@@ -1,11 +1,14 @@
 {
-  "name": "J5ArduinoDevelopDenver2015",
-  "version": "0.0.1",
-  "description": "My journey of tinkering with Arduino and Johnny Five JavaScript framework.",
-  "dependencies": {
-    "johnny-five": "^0.8.85"
-  },
-  "devDependencies": {
-    "temporal": "^0.4.0"
-  }
+    "name": "J5ArduinoDevelopDenver2015",
+    "version": "0.0.1",
+    "description": "My journey of tinkering with Arduino and Johnny Five JavaScript framework.",
+    "dependencies": {
+        "johnny-five": "^0.8.85",
+        "express": "~4.0",
+        "socket.io":">= 1.0.2",
+        "serialport": "1.4.10"
+    },
+    "devDependencies": {
+        "temporal": "^0.4.0"
+    }
 }

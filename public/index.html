@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>J5 In Da Browser - Holy Shit Snacks</title>
+        <script src="//code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <h1>Pan Servo</h1>
+        <input type="text" name="angle" id="angle_txt" class="text" value="90">
+        <input type="range" id="angle_slider" class="vHorizon" min="0" max="175" style="background-color: #00aec8; width: 50%;">
+
+        <hr>
+
+        <h1>Tilt Servo</h1>
+        <input type="text" name="angle2" id="angle_txt2" class="text" value="90">
+        <input type="range" id="angle_slider2" class="vHorizon" min="0" max="175" style="background-color: #00aec8; width: 50%;">
+
+        <hr>
+
+        <h1>LED Trigger</h1>
+        <button id="ledButton">Turn On The Lights</button>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+    </body>
+</html>
