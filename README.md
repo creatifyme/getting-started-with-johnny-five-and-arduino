@@ -4,9 +4,9 @@
 * http://slides.com/mattwebb-1/getting-started-with-arduino-johnny-five
 
 ###Get Started
-# clone this awesome repo
-# ```npm install```
-# ```node [pick-an-example].js```
+* clone this awesome repo
+* ```npm install```
+* ```node [pick-an-example].js```
 
 ###Hardware Learning
 * [Circuits 101](http://www.iliketomakestuff.com/maker-101-circuits/)
